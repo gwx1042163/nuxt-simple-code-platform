@@ -18,21 +18,28 @@
       </div>
     </div>
     <div class="body">
-       <!-- <div>
-        <div class="w-[4px] h-[18px] backgound-[#0084ff] ml-[14px] mr-[8px]"></div>布局
+       <div class="flex">
+        <div class="w-[4px] h-[18px] bg-[#0084ff] ml-[14px] mr-[8px]"></div>布局
        </div>
-       <div>
-        <div class="w-[4px] h-[18px] backgound-[#0084ff] ml-[14px] mr-[8px]"></div>组件
+       <div class="list-contain">
+        <div class="card"></div>
        </div>
-       <div>
-        <div class="w-[4px] h-[18px] backgound-[#0084ff] ml-[14px] mr-[8px]"></div>高级组件
-       </div> -->
+       <div  class="flex">
+        <div class="w-[4px] h-[18px] bg-[#0084ff] ml-[14px] mr-[8px]"></div>组件
+       </div>
+       <div  class="flex">
+        <div class="w-[4px] h-[18px] bg-[#0084ff] ml-[14px] mr-[8px]"></div>高级组件
+       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ArrowLeftBold,ArrowRightBold} from '@element-plus/icons-vue' 
 const leftCollapse = ref(true);
+const list1 = [{
+    title:"选项卡",
+}
+]
 </script>
 <style>
 </style>
