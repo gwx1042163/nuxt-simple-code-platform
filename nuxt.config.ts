@@ -9,16 +9,6 @@ export default defineNuxtConfig({
   },
   css:[
     'element-plus/dist/index.css',
-    "assets/styles/output.css"
   ],
-  postcss:{
-    plugins:{
-      tailwindcss:{
-
-      },
-      autoprefixer:{
-
-      }
-    }
-  }
+  modules:['@nuxtjs/tailwindcss'],
 })
