@@ -61,6 +61,7 @@ import relationFormForm from '../components/relationForm/relationFormForm.vue';
 import userChart from '../components/user/userChart.vue'
 import userForm from '../components/user/userForm.vue'
 import { markRaw } from 'vue'
+import getImageUrl from '../utils/getImageUrl'
 export const useMenuList = () => {
     // 组件列表
     const menuList = [
@@ -73,14 +74,14 @@ export const useMenuList = () => {
             componentShowName: 'menuChart',
             componentDataName: 'menuForm',
             showName: 'menuShow',
-            icon: getImageUrl('icons/page.png')
+            icon: getImageUrl('page.png')
         },
         {
             name: '分区',
             componentShowName:  'boxChart',
             componentDataName: 'boxForm',
             showName: 'boxShow',
-            icon: getImageUrl('icons/box.png')
+            icon: getImageUrl('box.png')
         }
         ]
     },
@@ -93,85 +94,85 @@ export const useMenuList = () => {
             componentShowName: 'inputtextChart',
             componentDataName: 'inputtextForm',
             showName: 'inputtextShow',
-            icon: getImageUrl('icons/单行文本.png')
+            icon: getImageUrl('单行文本.png')
         },
         {
             name: '多行文本',
             componentShowName: 'multinputtextChart',
             componentDataName: 'multinputtextForm',
             showName: 'multinputtextShow',
-            icon: getImageUrl('icons/多行文本.png')
+            icon: getImageUrl('多行文本.png')
         },
         {
             name: '单选',
             componentShowName: 'singleselectChart',
             componentDataName: 'singleselectForm',
             showName: 'singleselectShow',
-            icon: getImageUrl('icons/singleSelect.png')
+            icon: getImageUrl('singleSelect.png')
         },
         {
             name: '多选',
             componentShowName: 'multipleSelectChart',
             componentDataName: 'multipleSelectForm',
             showName: 'multipleSelectShow',
-            icon: getImageUrl('icons/mulSelect.png')
+            icon: getImageUrl('mulSelect.png')
         },
         {
             name: '日期时间',
             componentShowName: 'timepickerChart',
             componentDataName: 'timepickerForm',
             showName: 'timepickerShow',
-            icon: getImageUrl('icons/date.png')
+            icon: getImageUrl('date.png')
         },
         {
             name: '富文本',
             componentShowName: 'richtextChart',
             componentDataName: 'richtextForm',
             showName: 'richtextShow',
-            icon: getImageUrl('icons/多行文本.png')
+            icon: getImageUrl('多行文本.png')
         },
         {
             name: '数值',
             componentShowName: 'numberChart',
             componentDataName: 'numberForm',
             showName: 'numberShow',
-            icon: getImageUrl('icons/number.png')
+            icon: getImageUrl('number.png')
         },
         {
             name: '自动编号',
             componentShowName: 'autoNumberChart',
             componentDataName: 'autoNumberForm',
             showName: 'autoNumberShow',
-            icon: getImageUrl('icons/autoNumber.png')
+            icon: getImageUrl('autoNumber.png')
         },
         {
             name: '图片',
             componentShowName: 'imageUploadChart',
             componentDataName: 'imageUploadForm',
             showName: 'imageUploadShow',
-            icon: getImageUrl('icons/image.png')
+            icon: getImageUrl('image.png')
         },
         {
             name: '附件',
             componentShowName: 'fileChart',
             componentDataName: 'fileForm',
             showName: 'fileShow',
-            icon: getImageUrl('icons/file.png')
+            icon: getImageUrl('file.png')
         },
         {
             name: '子表单',
             componentShowName: 'subformChart',
             componentDataName: 'subformForm',
             showName: 'subformShow',
-            icon: getImageUrl('icons/subForm.png')
+            icon: getImageUrl('subForm.png')
         },
-        // {
-        //   name: '树形表单',
-        //   componentShowName: 'treeformChart',
-        //   componentDataName: 'treeformForm',
-        //   showName: 'treeformShow',
-        //   icon: getImageUrl('icons/subForm.png')
-        // }
+        {
+          name: '树形表单',
+          componentShowName: 'treeformChart',
+          componentDataName: 'treeformForm',
+          showName: 'treeformShow',
+          icon: getImageUrl('subForm.png')
+        }
         ]
     },
     {
@@ -183,63 +184,57 @@ export const useMenuList = () => {
             componentShowName:  'relationFormChart',
             componentDataName: 'relationFormForm',
             showName: "relationformShow",
-            icon: getImageUrl("icons/relationForm.png"),
+            icon: getImageUrl("relationForm.png"),
         },
         {
             name: "用户",
             componentShowName:  'userChart',
             componentDataName: 'userForm',
             showName: "userShow",
-            icon: getImageUrl("icons/relationForm.png"),
+            icon: getImageUrl("relationForm.png"),
         },
         {
             name: "组织",
             componentShowName: 'departmentChart',
             componentDataName:'departmentForm',
             showName: "departmentShow",
-            icon: getImageUrl("icons/relationForm.png"),
+            icon: getImageUrl("relationForm.png"),
         }
         ],
     },
     ]
-    const componentNams = {
-        boxChart: boxChart,
-        boxForm: boxForm,
-        inputtextChart: markRaw(inputtextChart),
-        inputtextForm: markRaw(inputtextForm),
-        multinputtextChart: markRaw(multinputtextChart),
-        multinputtextForm: markRaw(multinputtextForm),
-        singleselectChart: markRaw(singleselectChart),
-        singleselectForm: markRaw(singleselectForm),
-        multipleSelectChart: markRaw(multipleSelectChart),
-        multipleSelectForm: markRaw(multipleSelectForm),
-        timepickerChart: markRaw(timepickerChart),
-        timepickerForm: markRaw(timepickerForm),
-        richtextChart: markRaw(richtextChart),
-        richtextForm: markRaw(richtextForm),
-        numberChart: markRaw(numberChart),
-        numberForm: markRaw(numberForm),
-        autoNumberChart: markRaw(autoNumberChart),
-        autoNumberForm: markRaw(autoNumberForm),
-        imageUploadChart: markRaw(imageUploadChart),
-        imageUploadForm: markRaw(imageUploadForm),
-        fileChart: markRaw(fileChart),
-        fileForm: markRaw(fileForm),
-        subformChart: markRaw(subformChart),
-        subformForm: markRaw(subformForm),
-        relationFormChart: markRaw(relationFormChart),
-        relationFormForm: markRaw(relationFormForm),
-        userChart: markRaw(userChart),
-        userForm: markRaw(userForm),
-        departmentChart: markRaw(departmentChart),
-        departmentForm: markRaw(departmentForm),
+    const componentNames = {
+        'boxChart': boxChart,
+        'boxForm': boxForm,
+        'inputtextChart': markRaw(inputtextChart),
+        'inputtextForm': markRaw(inputtextForm),
+        'multinputtextChart': markRaw(multinputtextChart),
+        'multinputtextForm': markRaw(multinputtextForm),
+        'singleSelectChart': markRaw(singleSelectChart),
+        'singleSelectForm': markRaw(singleSelectForm),
+        'multipleSelectChart': markRaw(multiSelectChart),
+        'multipleSelectForm': markRaw(multiSelectForm),
+        'timepickerChart': markRaw(timepickerChart),
+        'timepickerForm': markRaw(timepickerForm),
+        'richtextChart': markRaw(richtextChart),
+        'richtextForm': markRaw(richtextForm),
+        'numberChart': markRaw(numberChart),
+        'numberForm': markRaw(numberForm),
+        'autoNumberChart': markRaw(autoNumberChart),
+        'autoNumberForm': markRaw(autoNumberForm),
+        'imageUploadChart': markRaw(imageUploadChart),
+        'imageUploadForm': markRaw(imageUploadForm),
+        'fileChart': markRaw(fileChart),
+        'fileForm': markRaw(fileForm),
+        'subformChart': markRaw(subformChart),
+        'subformForm': markRaw(subformForm),
+        'relationFormChart': markRaw(relationFormChart),
+        'relationFormForm': markRaw(relationFormForm),
+        'userChart': markRaw(userChart),
+        'userForm': markRaw(userForm),
     }
-   const getComponentName = (key) => {
-    return componentNams[key]
-   }
     return  {
         menuList,
-        componentNams,
-        getComponentName
+        componentNames,
     }
 }

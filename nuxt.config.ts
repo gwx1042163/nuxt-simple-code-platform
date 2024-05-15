@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   alias: {
     'imgs': fileURLToPath(new URL('./assets/imgs', import.meta.url)),
     'style': fileURLToPath(new URL('./assets/style', import.meta.url)),
+    'assets': fileURLToPath(new URL('./assets', import.meta.url)),
   },
   css:[
     'element-plus/dist/index.css',
