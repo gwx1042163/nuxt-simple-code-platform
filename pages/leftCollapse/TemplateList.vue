@@ -18,23 +18,59 @@
     </div>
     <div class="body" v-if="leftCollapse">
       <div class="card" v-for="list in menuList" :key="list.id">
-        <div class="header flex">
-          <div class="w-[4px] h-[18px] bg-[#0084ff] ml-[14px] mr-[8px]"></div>
+        <div class="title flex">
+          <div class="w-[4px] h-[18px] bg-[#0084ff] ml-[14px] mr-[8px]" />
           {{ list.name }}
         </div>
-        <div class="list-contain flex flex-wrap gap-[10px] ml-[15px]">
-          <div class="card flex  items-center shadow-md box-border h-[36px] mb-[8px] w-[100px] hover:border-[1px] border-solid border-[#64aeff]" v-for="item in list.chartList">
-            <img :src="item.icon" class="pl-[10px]" /><span class="text-xs font-sans font-normal text-[#333333] pl-[8px]">{{ item.name }}</span>
-          </div>
-        </div>
+        <draggable
+          class="flex flex-wrap gap-[10px] ml-[15px]"
+          :list="list.chartList"
+          ghost-class="ghost"
+          chosen-class="chosenClass"
+          :group="subOptions"
+          itemKey="id"
+          animation="300"
+          @start="onStart"
+          @end="onEnd"
+          @change="change"
+          @move="move"
+        >
+          <template #item="{ element }">
+            <div
+              class="item card flex items-center shadow-md box-border h-[36px] mb-[8px] w-[100px] hover:border-[1px] border-solid border-[#64aeff]"
+            >
+              <!-- <img :src="element.icon" class="pl-[10px]" /> -->
+              <span
+                class="text-xs font-sans font-normal text-[#333333] pl-[8px]"
+                >{{ element.name}}</span
+              >
+            </div>
+          </template>
+        </draggable>
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
-import {ref} from 'vue'
+import draggable from "vuedraggable";
+import { ref } from "vue";
 const leftCollapse = ref(true);
 const { menuList } = useMenuList();
+const drageContainRef= ref(null)
+const onStart = (evt)=>{
+}
+const onEnd = ()=>{
+}
+const subOptions = reactive({
+  name: 'chart',
+  sort: true,
+})
+const change= (item)=>{
+ console.log("change",item)
+}
+const move = ()=>{
+  console.log("move",move)
+}
 </script>
 <style></style>

@@ -1,3 +1,5 @@
+import menuChart from '~/components/menu/menuChart.vue'
+import menuForm from '~/components/menu/menuForm.vue'
 // 引入分区组件
 import boxChart from '../components/box/boxChart.vue'
 import boxForm from '../components/box/boxForm.vue'
@@ -60,8 +62,11 @@ import relationFormForm from '../components/relationForm/relationFormForm.vue';
 // 引入用户组件的配置表单
 import userChart from '../components/user/userChart.vue'
 import userForm from '../components/user/userForm.vue'
-import { markRaw } from 'vue'
+import departmentChart from '~/components/department/departmentChart.vue'
+import departmentForm from '~/components/department/departmentForm.vue'
 import getImageUrl from '../utils/getImageUrl'
+import TreeformChart from '~/components/treeForm/treeformChart.vue'
+import TreeformForm from '~/components/treeForm/treeformForm.vue'
 export const useMenuList = () => {
     // 组件列表
     const menuList = [
@@ -71,15 +76,15 @@ export const useMenuList = () => {
         chartList: [
         {
             name: '选项卡',
-            componentShowName: 'menuChart',
-            componentDataName: 'menuForm',
+            componentShowName: menuChart,
+            componentDataName: menuForm,
             showName: 'menuShow',
             icon: getImageUrl('page.png')
         },
         {
             name: '分区',
-            componentShowName:  'boxChart',
-            componentDataName: 'boxForm',
+            componentShowName:  boxChart,
+            componentDataName: boxForm,
             showName: 'boxShow',
             icon: getImageUrl('box.png')
         }
@@ -91,85 +96,85 @@ export const useMenuList = () => {
         chartList: [
         {
             name: '单行文本',
-            componentShowName: 'inputtextChart',
-            componentDataName: 'inputtextForm',
+            componentShowName: inputtextChart,
+            componentDataName: inputtextForm,
             showName: 'inputtextShow',
             icon: getImageUrl('单行文本.png')
         },
         {
             name: '多行文本',
-            componentShowName: 'multinputtextChart',
-            componentDataName: 'multinputtextForm',
+            componentShowName: multinputtextChart,
+            componentDataName: multinputtextForm,
             showName: 'multinputtextShow',
             icon: getImageUrl('多行文本.png')
         },
         {
             name: '单选',
-            componentShowName: 'singleselectChart',
-            componentDataName: 'singleselectForm',
+            componentShowName: singleSelectChart,
+            componentDataName: singleSelectForm,
             showName: 'singleselectShow',
             icon: getImageUrl('singleSelect.png')
         },
         {
             name: '多选',
-            componentShowName: 'multipleSelectChart',
-            componentDataName: 'multipleSelectForm',
+            componentShowName: multiSelectChart,
+            componentDataName: multiSelectForm,
             showName: 'multipleSelectShow',
             icon: getImageUrl('mulSelect.png')
         },
         {
             name: '日期时间',
-            componentShowName: 'timepickerChart',
-            componentDataName: 'timepickerForm',
+            componentShowName: timepickerChart,
+            componentDataName: timepickerForm,
             showName: 'timepickerShow',
             icon: getImageUrl('date.png')
         },
         {
             name: '富文本',
-            componentShowName: 'richtextChart',
-            componentDataName: 'richtextForm',
+            componentShowName: richtextChart,
+            componentDataName: richtextForm,
             showName: 'richtextShow',
             icon: getImageUrl('多行文本.png')
         },
         {
             name: '数值',
-            componentShowName: 'numberChart',
-            componentDataName: 'numberForm',
+            componentShowName: numberChart,
+            componentDataName: numberForm,
             showName: 'numberShow',
             icon: getImageUrl('number.png')
         },
         {
             name: '自动编号',
-            componentShowName: 'autoNumberChart',
-            componentDataName: 'autoNumberForm',
+            componentShowName: autoNumberChart,
+            componentDataName: autoNumberForm,
             showName: 'autoNumberShow',
             icon: getImageUrl('autoNumber.png')
         },
         {
             name: '图片',
-            componentShowName: 'imageUploadChart',
-            componentDataName: 'imageUploadForm',
+            componentShowName: imageUploadChart,
+            componentDataName: imageUploadForm,
             showName: 'imageUploadShow',
             icon: getImageUrl('image.png')
         },
         {
             name: '附件',
-            componentShowName: 'fileChart',
-            componentDataName: 'fileForm',
+            componentShowName: fileChart,
+            componentDataName: fileForm,
             showName: 'fileShow',
             icon: getImageUrl('file.png')
         },
         {
             name: '子表单',
-            componentShowName: 'subformChart',
-            componentDataName: 'subformForm',
+            componentShowName: subformChart,
+            componentDataName: subformForm,
             showName: 'subformShow',
             icon: getImageUrl('subForm.png')
         },
         {
           name: '树形表单',
-          componentShowName: 'treeformChart',
-          componentDataName: 'treeformForm',
+          componentShowName: TreeformChart,
+          componentDataName: TreeformForm,
           showName: 'treeformShow',
           icon: getImageUrl('subForm.png')
         }
@@ -181,60 +186,29 @@ export const useMenuList = () => {
         chartList: [
         {
             name: "关联表单",
-            componentShowName:  'relationFormChart',
-            componentDataName: 'relationFormForm',
+            componentShowName:  relationFormChart,
+            componentDataName: relationFormForm,
             showName: "relationformShow",
             icon: getImageUrl("relationForm.png"),
         },
         {
             name: "用户",
-            componentShowName:  'userChart',
-            componentDataName: 'userForm',
+            componentShowName:  userChart,
+            componentDataName: userForm,
             showName: "userShow",
             icon: getImageUrl("relationForm.png"),
         },
         {
             name: "组织",
-            componentShowName: 'departmentChart',
-            componentDataName:'departmentForm',
+            componentShowName: departmentChart,
+            componentDataName:  departmentForm,
             showName: "departmentShow",
             icon: getImageUrl("relationForm.png"),
         }
         ],
     },
     ]
-    const componentNames = {
-        'boxChart': boxChart,
-        'boxForm': boxForm,
-        'inputtextChart': markRaw(inputtextChart),
-        'inputtextForm': markRaw(inputtextForm),
-        'multinputtextChart': markRaw(multinputtextChart),
-        'multinputtextForm': markRaw(multinputtextForm),
-        'singleSelectChart': markRaw(singleSelectChart),
-        'singleSelectForm': markRaw(singleSelectForm),
-        'multipleSelectChart': markRaw(multiSelectChart),
-        'multipleSelectForm': markRaw(multiSelectForm),
-        'timepickerChart': markRaw(timepickerChart),
-        'timepickerForm': markRaw(timepickerForm),
-        'richtextChart': markRaw(richtextChart),
-        'richtextForm': markRaw(richtextForm),
-        'numberChart': markRaw(numberChart),
-        'numberForm': markRaw(numberForm),
-        'autoNumberChart': markRaw(autoNumberChart),
-        'autoNumberForm': markRaw(autoNumberForm),
-        'imageUploadChart': markRaw(imageUploadChart),
-        'imageUploadForm': markRaw(imageUploadForm),
-        'fileChart': markRaw(fileChart),
-        'fileForm': markRaw(fileForm),
-        'subformChart': markRaw(subformChart),
-        'subformForm': markRaw(subformForm),
-        'relationFormChart': markRaw(relationFormChart),
-        'relationFormForm': markRaw(relationFormForm),
-        'userChart': markRaw(userChart),
-        'userForm': markRaw(userForm),
-    }
     return  {
-        menuList,
-        componentNames,
+        menuList
     }
 }

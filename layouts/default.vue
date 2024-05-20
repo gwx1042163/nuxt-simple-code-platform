@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">header</div>
-    <div class="flex justify-center  h-[100vh]">
+    <div class="flex justify-center h-[100vh]">
       <el-menu
         :class="!isCollapse ? 'w-[200px]' : 'w-[60px]'"
         default-active="2"
@@ -25,18 +25,17 @@
         </el-menu-item>
       </el-menu>
       <!-- 模板窗口 -->
-        <TemplateList />
+      <TemplateList />
       <!-- 拖拽窗口 -->
-      <div class="flex-1 bg-slate-500 basis-[800px]">
-        拖拽区域
-        <DrageContain />
-      </div>
+      <DrageContain />
       <div class="flex-1 bg-yellow-50 basis-[200px]">form表单</div>
     </div>
+    <slot></slot>
   </div>
 </template>
 <script setup lang="ts">
 import type { TabsPaneContext } from "element-plus";
+import { ElMenuItem,ElMenu,ElIcon } from "element-plus";
 import DrageContain from "./../pages/DrageContain.vue";
 import TemplateList from "./../pages/leftCollapse/TemplateList.vue";
 const isCollapse = ref(false);
