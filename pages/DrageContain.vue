@@ -1,24 +1,53 @@
 <template>
-  <draggable class=" flex-1 bg-slate-500 basis-[800px]"  :list="widgetList" :group="toOption" @add="add" @change="change">
-       <template #item="{element}">
-        <div
-          class="list-group-item"
-          :key="element.showName"
-        >
-          <component :is="element.componentShowName"/>
-        </div>
-       </template>
-  </draggable>
+  <div class="min-w-[400px]">
+    <el-tabs
+    v-model="activeName"
+    type="border-card"
+    class="demo-tabs"
+    @tab-click="handleClick"
+  >
+    <el-tab-pane v-for="panelItem in data.menuList" :key="panelItem.id" :name="panelItem.title"  :label="panelItem.title" >
+      <component :is="panelItem.componentShowName" :showData="panelItem" @createComp="createComp"/>
+    </el-tab-pane>
+  </el-tabs>
+    
+  </div>
 </template>
 <script setup>
-import draggable from "vuedraggable";
-const widgetList = ref([])
-const toOption = reactive({
-  name: 'chart',
-  sort: true,
-  dragClass: 'self_drag'
-})
-const change = (item)=>{
- console.log(item)
+import { ref, reactive } from "vue";
+import { cloneDeep } from 'lodash'
+import { ElTabPane, ElTabs } from "element-plus";
+import uuid from "~/utils/uuid";
+const {menuInfo } = useMenuList()
+const activeName = ref("默认选项卡");
+const data = reactive({
+  menuList: [
+    {
+      ...cloneDeep(menuInfo),
+      title:"默认选项卡",
+      id: uuid(10),
+      children:[]
+    }
+  ],
+});
+const current = ref({})
+const createComp = (current,parent)=>{
+  const temp = {
+      ...cloneDeep(current),
+      title:current.name,
+      id: uuid(10),
+      children:[]
+  }
+  if(current.showName == "menuShow" &&parent.showName == "menuShow"  ){
+      parent.children.pop()
+      data.menuList.push(temp)
+      temp.title = "选项卡"+ data.menuList.length
+  }else{
+    parent.children.pop()
+    parent.children.push(temp)
+  }
+}
+const handleClick=()=>{
+
 }
 </script>

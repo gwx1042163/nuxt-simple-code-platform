@@ -30,10 +30,6 @@
           :group="subOptions"
           itemKey="id"
           animation="300"
-          @start="onStart"
-          @end="onEnd"
-          @change="change"
-          @move="move"
         >
           <template #item="{ element }">
             <div
@@ -55,22 +51,15 @@
 import { ArrowLeftBold, ArrowRightBold } from "@element-plus/icons-vue";
 import draggable from "vuedraggable";
 import { ref } from "vue";
+import { ElIcon } from "element-plus";
 const leftCollapse = ref(true);
+
 const { menuList } = useMenuList();
 const drageContainRef= ref(null)
-const onStart = (evt)=>{
-}
-const onEnd = ()=>{
-}
+
 const subOptions = reactive({
-  name: 'chart',
+  name: 'menu-chart',
   sort: true,
 })
-const change= (item)=>{
- console.log("change",item)
-}
-const move = ()=>{
-  console.log("move",move)
-}
 </script>
 <style></style>

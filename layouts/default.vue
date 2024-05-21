@@ -28,9 +28,8 @@
       <TemplateList />
       <!-- 拖拽窗口 -->
       <DrageContain />
-      <div class="flex-1 bg-yellow-50 basis-[200px]">form表单</div>
+     <div class="flex-1 bg-yellow-50 basis-[200px]"></div>
     </div>
-    <slot></slot>
   </div>
 </template>
 <script setup lang="ts">
