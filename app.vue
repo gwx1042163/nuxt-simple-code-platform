@@ -1,20 +1,3 @@
 <template>
-  <NuxtLayout name="default">
-  </NuxtLayout>
+  <NuxtPage/>
 </template>
-
-<script lang="ts" setup>
-import {
-  Check,
-  Delete,
-  Edit,
-  Message,
-  Search,
-  Star,
-} from "@element-plus/icons-vue";
-</script>
-
-<style>
-body {
-}
-</style>

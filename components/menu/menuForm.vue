@@ -1,3 +1,6 @@
 <template>
-    <div>menuChart</div>
+  <NuxtLayout name="configForm">
+    
+  </NuxtLayout>
+  
 </template>

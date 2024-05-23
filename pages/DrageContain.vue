@@ -1,5 +1,5 @@
 <template>
-  <div class="min-w-[400px]">
+  <div class="min-w-[800px]" >
     <el-tabs
     v-model="activeName"
     type="border-card"
@@ -7,7 +7,7 @@
     @tab-click="handleClick"
   >
     <el-tab-pane v-for="panelItem in data.menuList" :key="panelItem.id" :name="panelItem.title"  :label="panelItem.title" >
-      <component :is="panelItem.componentShowName" :showData="panelItem" @createComp="createComp"/>
+      <component :is="panelItem.componentShowName" :toOption="toOption" :showData="panelItem" @createComp="createComp" @updateConfigForm="updateConfigForm"/>
     </el-tab-pane>
   </el-tabs>
     
@@ -30,8 +30,11 @@ const data = reactive({
     }
   ],
 });
-const current = ref({})
-const createComp = (current,parent)=>{
+const toOption = reactive({
+  name: "menu-chart",
+  sort: true,
+});
+const createComp = (current,parent,index)=>{
   const temp = {
       ...cloneDeep(current),
       title:current.name,
@@ -43,11 +46,15 @@ const createComp = (current,parent)=>{
       data.menuList.push(temp)
       temp.title = "选项卡"+ data.menuList.length
   }else{
-    parent.children.pop()
-    parent.children.push(temp)
+    parent.children.splice(index,1,temp)
   }
 }
 const handleClick=()=>{
 
 }
+const emits =defineEmits(["updateConfigForm"])
+const updateConfigForm= (comp)=>{
+  emits('updateConfigForm',comp)
+}
+
 </script>
