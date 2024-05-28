@@ -1,6 +1,5 @@
 <template>
   <draggable
-    @click.prevent.stop="clickComp"
     class="flex-1 menu-contain minH-[1000px]"
     :list="props.showData?.children"
     :group="props.toOption"
@@ -10,7 +9,7 @@
   >
     <template #item="{ element }">
       <div class="list-group-item" :key="element.showName">
-        <component :toOption="props.toOption" :show-data="element"  :is="element.componentShowName" />
+        <component :toOption="props.toOption" :show-data="element" @updateConfigForm="clickSubComp" @click.stop.prevent="clickComp(element)"  :is="element.componentShowName" />
       </div>
     </template>
   </draggable>
@@ -21,8 +20,11 @@ import draggable from "vuedraggable";
 const emits = defineEmits(["createComp", "changeDragContainName","updateConfigForm"]);
 const props = defineProps(["showData","toOption"]);
 const {change,add} = useCommon(emits,props.showData)
-const clickComp= ()=>{
-  emits('updateConfigForm',props.showData.componentDataName)
+const clickSubComp= (item:any)=>{
+  emits('updateConfigForm',item)
+}
+const clickComp = (item:any)=>{
+  emits('updateConfigForm',item)
 }
 </script>
 

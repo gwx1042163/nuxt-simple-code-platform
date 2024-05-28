@@ -1,5 +1,5 @@
 <template>
-  <div class="min-w-[800px]" >
+  <div >
     <el-tabs
     v-model="activeName"
     type="border-card"
@@ -7,7 +7,7 @@
     @tab-click="handleClick"
   >
     <el-tab-pane v-for="panelItem in data.menuList" :key="panelItem.id" :name="panelItem.title"  :label="panelItem.title" >
-      <component :is="panelItem.componentShowName" :toOption="toOption" :showData="panelItem" @createComp="createComp" @updateConfigForm="updateConfigForm"/>
+      <component :is="panelItem.componentShowName" :toOption="toOption" :showData="panelItem" @updateConfigForm="updateConfigForm" @createComp="createComp" @click.stop.prevent="clickItem(panelItem)"/>
     </el-tab-pane>
   </el-tabs>
     
@@ -49,8 +49,8 @@ const createComp = (current,parent,index)=>{
     parent.children.splice(index,1,temp)
   }
 }
-const handleClick=()=>{
-
+const clickItem=(panelItem)=>{
+  emits('updateConfigForm',panelItem)
 }
 const emits =defineEmits(["updateConfigForm"])
 const updateConfigForm= (comp)=>{

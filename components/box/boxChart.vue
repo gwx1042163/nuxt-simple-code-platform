@@ -13,8 +13,8 @@
         @add="add"
       >
         <template #item="{ element }">
-          <div class="list-group-item" :key="element.showName">
-            <component :is="element.componentShowName" />
+          <div class="list-group-item" :key="element.showName" @click.stop="clickItem(element)">
+            <component :is="element.componentShowName"  />
           </div>
         </template>
       </draggable>
@@ -23,9 +23,12 @@
 <script lang="ts" setup>
 import draggable from "vuedraggable";
 import { defineEmits,defineProps } from "vue";
-const emits = defineEmits(["createComp"]);
+const emits = defineEmits(["createComp",'updateConfigForm']);
 const props = defineProps(["showData", "toOption"]);
 const {change,add} = useCommon(emits,props.showData)
+const clickItem = (ele:any)=>{
+  emits('updateConfigForm',ele)
+}
 </script>
 <style scoped>
 </style>

@@ -47,6 +47,7 @@ const handleClose = (key: string, keyPath: string[]) => {
 };
 const formComp = ref(null);
 const updateConfigForm = (comp: any) => {
+  console.log("index_comp",comp)
   formComp.value = comp;
 };
 </script>
