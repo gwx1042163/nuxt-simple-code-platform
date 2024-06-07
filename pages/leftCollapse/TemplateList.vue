@@ -1,5 +1,5 @@
 <template>
-  <div :class="leftCollapse ? 'basis-[400px]' : 'basis-[20px]'">
+  <div :class="leftCollapse ? 'basis-[300px]' : 'basis-[20px]'">
     <div class="header">
       <div
         v-if="leftCollapse"

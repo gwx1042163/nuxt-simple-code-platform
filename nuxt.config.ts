@@ -1,6 +1,6 @@
 import tailwindConfig from "./tailwind.config";
 import { fileURLToPath } from 'node:url';
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// https://nuxt.com/docs/api/configuration/nuxt-configx
 export default defineNuxtConfig({
   devtools: { enabled: true },
   alias: {
@@ -12,4 +12,17 @@ export default defineNuxtConfig({
     'element-plus/dist/index.css',
   ],
   modules:['@nuxtjs/tailwindcss'],
+  runtimeConfig:{
+    public:{
+      baseURL: process.env.NUXT_PUBLIC_API_BASE
+    }
+  },
+  nitro:{
+    "devProxy":{
+       'api':{
+        target: process.env.NUXT_PUBLIC_API_BASE,
+        changeOrigin:true
+       }
+    }
+  }
 })

@@ -1,12 +1,12 @@
 <template>
-  <el-card style="max-width: 100%; min-height: 400px">
+  <el-card class="max-w-full min-h-fit " :class="'h-['+props.height+']px'" >
     <template #header>
       <div class="card-header">
         <span>{{ props.showData?.title }}</span>
       </div>
     </template>
       <draggable
-         class="flex-1 bg-slate-500 h-[300px]"
+         class="flex-1min-h-[200px]"
         :list="props.showData?.children"
         :group="props.toOption"
         @change="change"
@@ -23,12 +23,10 @@
 <script lang="ts" setup>
 import draggable from "vuedraggable";
 import { defineEmits,defineProps } from "vue";
-const emits = defineEmits(["createComp",'updateConfigForm']);
-const props = defineProps(["showData", "toOption"]);
+const emits = defineEmits(["createComp"]);
+const props = defineProps(["showData", "toOption","height"]);
 const {change,add} = useCommon(emits,props.showData)
 const clickItem = (ele:any)=>{
-  emits('updateConfigForm',ele)
+  eventBus.emit('updateConfigForm',ele)
 }
 </script>
-<style scoped>
-</style>

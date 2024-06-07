@@ -1,13 +1,11 @@
 <template>
     <div>
-      <div class="header"><NuxtPage name="header"/></div>
+      <div class="header">header</div>
       <div class="flex justify-center h-[100vh]">
         <el-menu
           :class="!isCollapse ? 'w-[200px]' : 'w-[60px]'"
           default-active="2"
           :collapse="isCollapse"
-          @open="handleOpen"
-          @close="handleClose"
         >
           <img
             class="collapseImg"
@@ -27,9 +25,9 @@
         <!-- 模板窗口 -->
         <TemplateList/>
         <!-- 拖拽窗口 -->
-        <DrageContain @updateConfigForm="updateConfigForm" />
-        <div class="flex-1 bg-yellow-50 basis-[200px]">
-          <component :is="formComp" />
+        <DrageContain/>
+        <div class="flex-1 basis-[300px]">
+          <component :is="current.componentDataName" :chartId="current.id" :chartName="current.title" />
         </div>
       </div>
     </div>
@@ -39,16 +37,8 @@
   import TemplateList from "./leftCollapse/TemplateList.vue";
   import DrageContain from "./DrageContain.vue";
   const isCollapse = ref(false);
-  const handleOpen = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath);
-  };
-  const handleClose = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath);
-  };
-  const formComp = ref(null);
-  const updateConfigForm = (comp: any) => {
-    formComp.value = comp;
-  };
+  const current = ref<any>({})
+  eventBus.on('updateConfigForm',(comp:any)=>{
+    current.value = comp;
+  })
   </script>
-   
-  

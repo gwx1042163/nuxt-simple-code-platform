@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "element-plus": "^2.7.3"
   },
   "devDependencies": {
@@ -21,11 +23,15 @@
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/eslint-module": "latest",
     "@nuxtjs/tailwindcss": "latest",
+    "@types/axios": "^0.14.0",
+    "@types/vuedraggable": "^2.24.0",
+    "axios": "^1.7.2",
     "core-js": "latest",
     "eslint": "latest",
     "eslint-plugin-nuxt": "latest",
     "eslint-plugin-vue": "latest",
     "lodash": "latest",
+    "mitt": "^3.0.1",
     "nuxt": "latest",
     "postcss": "latest",
     "vue": "latest",
