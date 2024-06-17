@@ -1,4 +1,11 @@
+
 <template>
+  <contentDoc>
+  <!-- ---
+    title:'Title of this page'
+    decription:"测试description"
+    --- -->
+  </contentDoc>
     <el-form
       label-position="top"
       label-width="auto"
@@ -12,15 +19,21 @@
         <el-input v-model="user.password" />
       </el-form-item>
       <el-form-item label="验证码">
-        <el-input v-model="user.type" />
+        <el-button @click="show = !show" >验证码</el-button>
       </el-form-item>
-      <el-button type="primary" @click="loginIn">登录</el-button>
+      <LazyClientOnly>
+        <Vcode ref="vcode"  :show="show"  canvasWidth="200" canvasHeight="150" @success="onSuccess" @close="onClose" />
+        </LazyClientOnly>
+      <el-button type="primary" @click="loginIn" :disabled="validateTrue">登录</el-button>
       <el-button type="default">重置</el-button>
+      <NuxtLink :to="{path:'/WeChatLogin' }"> <el-button class="ml-[20px]" type="success">微信登录</el-button></NuxtLink>
     </el-form>
+   
   </template>
   
   <script lang="ts" setup>
-  import { reactive, ref } from 'vue'
+  import Vcode from 'vue3-puzzle-vcode'
+import { reactive, ref } from 'vue'
   const user = reactive({
     userName: '',
     password: '',
@@ -28,15 +41,19 @@
   })
   const router = useRouter()
   const loginIn =async ()=>{
-  //  const res = await useDefaultRequest.get( '/cbrain-auth/sso/doLogin',{
-  //       params:{
-  //         userName:"340878" || user.userName,
-  //         password:"123456" || user.password
-  //       }
-  //  });
       router.push({
         path:'/formObject'
       })
   }
+  const  show = ref(false)
+  const validateTrue = ref(true)
+  const onSuccess = ()=>{
+    show.value = false
+    validateTrue.value = false
+  }
+  const onClose = ()=>{
+    show.value = false
+  }
+
   </script>
   

@@ -23,7 +23,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="状态">
-            <el-radio-group v-model="configForm.visible" >
+            <el-radio-group v-model="configForm.visible" @change="onChange">
                 <el-radio value="1" >显示</el-radio>
                 <el-radio value="0" >隐藏</el-radio>
             </el-radio-group>`
@@ -41,11 +41,10 @@
     layout: "整行",
     visible: false,
   });
-  const emits = defineEmits(['updateLayout'])
-  const onChange = (val:string) => {
-    eventBus.emit('updateLayOut',{
-      chartId:props.chartId,
-      layout:val
+  const onChange = () => {
+    eventBus.emit('updateChartByForm',{
+      chartId: props.chartId,
+      formValue: configForm
     })
   };
   </script>

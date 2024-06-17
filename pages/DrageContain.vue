@@ -52,5 +52,9 @@ const createComp = (current,parent,index)=>{
 const clickItem=(panelItem)=>{
   eventBus.emit('updateConfigForm',panelItem)
 }
+eventBus.on("start",(child,parent)=>{
+  console.log("start")
+  return false
+})
 
 </script>

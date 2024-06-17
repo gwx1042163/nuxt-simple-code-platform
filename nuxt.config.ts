@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   css:[
     'element-plus/dist/index.css',
   ],
-  modules:['@nuxtjs/tailwindcss'],
+  modules:['@nuxtjs/tailwindcss', "@nuxt/content"],
   runtimeConfig:{
     public:{
       baseURL: process.env.NUXT_PUBLIC_API_BASE
@@ -23,6 +23,28 @@ export default defineNuxtConfig({
         target: process.env.NUXT_PUBLIC_API_BASE,
         changeOrigin:true
        }
+    }
+  },
+  hooks:{
+    //声明钩子
+    close:()=>{
+      console.log('close')
+    },
+    listen:()=>{
+      console.log('listen')
+    },
+    "build:before":()=>{
+      console.log('build:before')
+    },
+    "builder:watch":()=>{
+      console.log('build:watch')
+
+    },
+    "build:error":()=>{
+      console.log('build:error')
+    },
+    'ready':()=>{
+      console.log('ready')
     }
   }
 })

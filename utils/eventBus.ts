@@ -1,12 +1,20 @@
 import mitt from 'mitt'
 type Events  ={
     //更新的布局
-    updateLayOut:{
+    updateChartByForm:{
         chartId:string,
-        layout:string
+        formValue:any
     },
     //更新配置的form
-    updateConfigForm:object
+    updateConfigForm:object,
+    start:{
+        parent:Object,
+        child:Object
+    },
+    end:{
+        parent:Object,
+        child:Object
+    },
 }
 const eventBus =  mitt<Events>()
 export default eventBus

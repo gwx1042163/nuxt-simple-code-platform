@@ -30,12 +30,14 @@
           :group="subOptions"
           itemKey="id"
           animation="300"
+           @start="start"
+           @end="end"
         >
           <template #item="{ element }">
             <div
+              
               class="item card flex items-center shadow-md box-border h-[36px] mb-[8px] w-[100px] hover:border-[1px] border-solid border-[#64aeff]"
             >
-              <!-- <img :src="element.icon" class="pl-[10px]" /> -->
               <span
                 class="text-xs font-sans font-normal text-[#333333] pl-[8px]"
                 >{{ element.name}}</span
@@ -61,5 +63,13 @@ const subOptions = reactive({
   name: 'menu-chart',
   sort: true,
 })
+const start= ()=>{
+  console.log('start')
+  return false;
+}
+const end=(val)=>{
+  return false;
+  console.log('end',val)
+}
 </script>
 <style></style>

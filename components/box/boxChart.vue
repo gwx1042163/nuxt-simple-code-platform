@@ -1,16 +1,17 @@
 <template>
-  <el-card class="max-w-full min-h-fit " :class="'h-['+props.height+']px'" >
+  <el-card class="max-w-full" :class="'h-['+props.height+']px'"  >
     <template #header>
       <div class="card-header">
         <span>{{ props.showData?.title }}</span>
       </div>
     </template>
       <draggable
-         class="flex-1min-h-[200px]"
+         class="flex-1  min-h-[200px]"
         :list="props.showData?.children"
         :group="props.toOption"
         @change="change"
         @add="add"
+
       >
         <template #item="{ element }">
           <div class="list-group-item" :key="element.showName" @click.stop="clickItem(element)">
@@ -29,4 +30,8 @@ const {change,add} = useCommon(emits,props.showData)
 const clickItem = (ele:any)=>{
   eventBus.emit('updateConfigForm',ele)
 }
+eventBus.on('updateChartByForm',({ chartId, formValue })=>{
+     console.log(chartId)
+     console.log(formValue)
+})
 </script>

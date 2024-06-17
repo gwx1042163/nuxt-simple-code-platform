@@ -36,10 +36,10 @@ const configForm = reactive({
   visible: false,
 });
 const emits = defineEmits(['updateLayout'])
-const onChange = (val:string) => {
-  eventBus.emit('updateLayOut',{
+const onChange = () => {
+  eventBus.emit('updateChartByForm',{
     chartId:props.chartId,
-    layout:val
+    formValue:configForm
   })
 };
 </script>
